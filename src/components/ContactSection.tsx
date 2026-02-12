@@ -7,29 +7,29 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "seu.email@exemplo.com",
-    href: "mailto:seu.email@exemplo.com",
+    value: "antoniodev2709@gmail.com",
+    href: "mailto:antoniodev2709@fmail.com",
     color: "hover:text-red-400",
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "@seuusername",
-    href: "https://github.com",
+    value: "@devantonio27",
+    href: "https://github.com/devantonio27",
     color: "hover:text-foreground",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "/in/seuusername",
-    href: "https://linkedin.com",
+    value: "/in/antonio-carlos-melo",
+    href: "https://www.linkedin.com/in/antonio-carlos-melo-b542a7281/",
     color: "hover:text-blue-400",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
-    value: "+55 (xx) xxxxx-xxxx",
-    href: "https://wa.me/55xxxxxxxxxx",
+    value: "+55 (82) 9 9952-7183",
+    href: "https://wa.me/5599527183",
     color: "hover:text-green-400",
   },
 ];
@@ -91,7 +91,7 @@ export const ContactSection = () => {
             transition={{ delay: 0.6 }}
           >
             <Button variant="glow" size="xl" asChild>
-              <a href="mailto:seu.email@exemplo.com">
+              <a href="mailto:antoniodev2709@gmail.com">
                 <Send className="w-5 h-5" />
                 Enviar Mensagem
               </a>
