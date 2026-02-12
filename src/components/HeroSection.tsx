@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, ArrowDown, Sparkles } from "lucide-react";
+import { Github, Linkedin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/profile.png";
 
@@ -10,12 +10,12 @@ export const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Grid Pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-30" />
+      <div className="absolute inset-0 grid-pattern opacity-30  pointer-events-none" />
 
       {/* Gradient Orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse  pointer-events-none" />
       <div
-        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse  pointer-events-none"
         style={{ animationDelay: "1s" }}
       />
 
@@ -44,7 +44,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
             >
-              Olá, eu sou <span className="text-gradient">Seu Nome</span>
+              Olá, eu sou <span className="text-gradient">Toni Dev</span>
             </motion.h1>
 
             <motion.h2
@@ -53,8 +53,8 @@ export const HeroSection = () => {
               transition={{ delay: 0.4 }}
               className="text-xl md:text-2xl font-mono text-muted-foreground mb-6"
             >
-              <span className="text-primary">{">"}</span> Desenvolvedor Frontend
-              | React & Node.js
+              <span className="text-primary">{">"}</span> Desenvolvedor
+              FullStack Web | React & Node.js
             </motion.h2>
 
             <motion.p
@@ -78,7 +78,7 @@ export const HeroSection = () => {
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/devantonio27"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -88,7 +88,7 @@ export const HeroSection = () => {
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/antonio-carlos-melo-b542a7281/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -165,24 +165,6 @@ export const HeroSection = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.a
-            href="#about"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-          >
-            <span className="text-xs font-mono">scroll</span>
-            <ArrowDown className="w-4 h-4" />
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   );

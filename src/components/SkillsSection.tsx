@@ -19,23 +19,22 @@ const skillCategories: SkillCategory[] = [
       "TypeScript",
       "React",
       "Tailwind CSS",
-      "Framer Motion",
     ],
   },
   {
     title: "Backend",
     icon: Server,
-    skills: ["Node.js", "Express", "REST APIs", "Python"],
+    skills: ["Node.js", "Express", "REST APIs"],
   },
   {
     title: "Banco de Dados",
     icon: Database,
-    skills: ["PostgreSQL", "MongoDB", "MySQL", "Firebase"],
+    skills: ["PostgreSQL", "NeonDB", "Supabase"],
   },
   {
     title: "Ferramentas",
     icon: Wrench,
-    skills: ["Git", "GitHub", "VS Code", "Figma", "Postman", "Linux", "Docker"],
+    skills: ["Git", "GitHub", "Cursor", "Figma", "Postman", "Docker"],
   },
 ];
 
