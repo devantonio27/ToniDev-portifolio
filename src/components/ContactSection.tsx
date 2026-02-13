@@ -91,7 +91,7 @@ export const ContactSection = () => {
             transition={{ delay: 0.6 }}
           >
             <Button variant="glow" size="xl" asChild>
-              <a href="mailto:antoniodev2709@gmail.com">
+              <a href="https://wa.me/5599527183">
                 <Send className="w-5 h-5" />
                 Enviar Mensagem
               </a>
