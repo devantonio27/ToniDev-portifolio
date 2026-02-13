@@ -166,7 +166,7 @@ export const ProjectsSection = () => {
         >
           <Button variant="heroOutline" size="lg" asChild>
             <a
-              href="https://github.com"
+              href="https://github.com/devantonio27"
               target="_blank"
               rel="noopener noreferrer"
             >
