@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart, Terminal } from "lucide-react";
+import { Github, Linkedin, Terminal } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -39,12 +39,6 @@ export const Footer = () => {
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="antoniodev2709@gmail.com"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Mail className="w-5 h-5" />
             </a>
           </div>
         </div>
