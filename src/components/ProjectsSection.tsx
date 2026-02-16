@@ -25,6 +25,7 @@ const projects: Project[] = [
       "Postgresql",
     ],
     githubUrl: "https://github.com/devantonio27/e-commerce-beewear",
+    liveUrl: "https://e-commerce-beewear.vercel.app/",
     featured: true,
   },
   {
