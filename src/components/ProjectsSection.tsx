@@ -1,7 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+import projectBewear from "@/assets/project-bewear.png";
+import projectClinica from "@/assets/project-clinica.png";
+import projectLibrary from "@/assets/project-personal.png";
+import projectPortfolio from "@/assets/project-portfolio.png";
 
 interface Project {
   title: string;
@@ -10,13 +15,14 @@ interface Project {
   githubUrl: string;
   liveUrl?: string;
   featured?: boolean;
+  image: string;
 }
 
 const projects: Project[] = [
   {
     title: "E-commerce Beewear",
     description:
-      "Plataforma de e-commerce desenvolvida do zero para o segmento de moda streetwear, focado em performance, organização de código e escalabilidade, aplicando boas práticas de desenvolvimento fullstack ",
+      "Plataforma de e-commerce desenvolvida do zero para o segmento de moda streetwear, focado em performance, organização de código e escalabilidade, aplicando boas práticas de desenvolvimento fullstack (Em Construção)",
     technologies: [
       "React",
       "TypeScript",
@@ -27,6 +33,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/devantonio27/e-commerce-beewear",
     liveUrl: "https://e-commerce-beewear.vercel.app/",
     featured: true,
+    image: projectBewear,
   },
   {
     title: "LandingPage para Cliníca",
@@ -35,13 +42,15 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     liveUrl:
       "https://acolher-espaco-magic.lovable.app/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnfbFkYv6TBpuRJyN3WGKSY-A4FzhODbJi8Tygtm7DV81kDLQT0ue5uhsdHN8_aem_McyAyBc8rEOg2s4zFFu-LQ",
+    image: projectClinica,
   },
   {
-    title: "Community Librabry",
+    title: "Community Library",
     description:
       "API de biblicoteca comunitária, criada inteiramente em JS para fins didáticos.",
     technologies: ["JavaScript"],
     githubUrl: "https://github.com/devantonio27/community-library",
+    image: projectLibrary,
   },
   {
     title: "Portfolio Website",
@@ -51,6 +60,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com/devantonio27/ToniDev-portifolio",
     liveUrl: "https://toni-dev-portifolio.vercel.app/",
     featured: true,
+    image: projectPortfolio,
   },
 ];
 
@@ -70,52 +80,62 @@ const ProjectCard = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`group relative ${project.featured ? "md:col-span-2" : ""}`}
+      className="h-full"
     >
-      <div className="h-full p-6 rounded-xl bg-card border border-border card-hover flex flex-col">
-        {/* Header */}
-        <div className="flex items-start justify-between mb-4">
-          <Folder className="w-10 h-10 text-primary" />
-          <div className="flex gap-3">
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            {project.liveUrl && (
+      <div className="h-full flex flex-col rounded-xl bg-card border border-border overflow-hidden group card-hover min-h-[420px] md:min-h-[450px]">
+        {/* 🖼️ Imagem e Overlay */}
+        <div className="relative overflow-hidden aspect-video group/image">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/image:scale-105"
+          />
+          {/* 🎬 Overlay no hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center">
+            <div className="flex gap-4">
               <a
-                href={project.liveUrl}
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="bg-background/80 backdrop-blur-sm text-foreground hover:text-primary p-3 rounded-full transition-all duration-300 hover:scale-110 opacity-0 scale-90 group-hover/image:opacity-100 group-hover/image:scale-100"
               >
-                <ExternalLink className="w-5 h-5" />
+                <Github className="w-5 h-5" />
               </a>
-            )}
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-background/80 backdrop-blur-sm text-foreground hover:text-primary p-3 rounded-full transition-all duration-300 hover:scale-110 opacity-0 scale-90 group-hover/image:opacity-100 group-hover/image:scale-100"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              )}
+            </div>
           </div>
         </div>
 
-        {/* Content */}
-        <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-          {project.title}
-        </h3>
-        <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-          {project.description}
-        </p>
+        {/* 📝 Conteúdo */}
+        <div className="p-5 md:p-6 flex flex-col flex-grow">
+          <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">
+            {project.title}
+          </h3>
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded"
-            >
-              {tech}
-            </span>
-          ))}
+          <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+            {project.description}
+          </p>
+
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </motion.div>
@@ -151,7 +171,7 @@ export const ProjectsSection = () => {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
