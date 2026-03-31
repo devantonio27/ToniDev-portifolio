@@ -83,59 +83,60 @@ const ProjectCard = ({
       className="h-full"
     >
       <div className="h-full flex flex-col rounded-xl bg-card border border-border overflow-hidden group card-hover min-h-[420px] md:min-h-[450px]">
-      {/* 🖼️ Imagem */}
-      <div className="aspect-video overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
-
-      {/* 📝 Conteúdo (abaixo da imagem) */}
-      <div className="p-5 md:p-6 flex flex-col flex-grow">
-        <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">
-          {project.title}
-        </h3>
-
-        <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-          {project.description}
-        </p>
-
-        {/* Links */}
-        <div className="flex gap-3 mt-3 mb-6">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Github className="w-5 h-5" />
-          </a>
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <ExternalLink className="w-5 h-5" />
-            </a>
-          )}
+        {/* 🖼️ Imagem e Overlay */}
+        <div className="relative overflow-hidden aspect-video group/image">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/image:scale-105"
+          />
+          {/* 🎬 Overlay no hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center">
+            <div className="flex gap-4">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-background/80 backdrop-blur-sm text-foreground hover:text-primary p-3 rounded-full transition-all duration-300 hover:scale-110 opacity-0 scale-90 group-hover/image:opacity-100 group-hover/image:scale-100"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-background/80 backdrop-blur-sm text-foreground hover:text-primary p-3 rounded-full transition-all duration-300 hover:scale-110 opacity-0 scale-90 group-hover/image:opacity-100 group-hover/image:scale-100"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              )}
+            </div>
+          </div>
         </div>
 
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mt-auto">
-          {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded"
-            >
-              {tech}
-            </span>
-          ))}
+        {/* 📝 Conteúdo */}
+        <div className="p-5 md:p-6 flex flex-col flex-grow">
+          <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">
+            {project.title}
+          </h3>
+
+          <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+            {project.description}
+          </p>
+
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </motion.div>
   );
