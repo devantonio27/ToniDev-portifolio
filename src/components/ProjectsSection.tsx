@@ -12,7 +12,7 @@ interface Project {
   title: string;
   description: string;
   technologies: string[];
-  githubUrl: string;
+  githubUrl?: string;
   liveUrl?: string;
   featured?: boolean;
   image: string;
@@ -22,7 +22,7 @@ const projects: Project[] = [
   {
     title: "E-commerce Beewear",
     description:
-      "Plataforma de e-commerce desenvolvida do zero para o segmento de moda streetwear, focado em performance, organização de código e escalabilidade, aplicando boas práticas de desenvolvimento fullstack (Em Construção)",
+      "Plataforma de e-commerce desenvolvida do zero para uma marca streetwear, com foco em performance, escalabilidade e experiência de compra. Inclui catálogo de produtos, carrinho e arquitetura preparada para crescimento.",
     technologies: [
       "React",
       "TypeScript",
@@ -37,25 +37,23 @@ const projects: Project[] = [
   },
   {
     title: "LandingPage para Cliníca",
-    description: "Landing page criada com auxilio de IA (lovable) para clínica",
+    description: "Landing page moderna criada com apoio de IA, focada em conversão e apresentação institucional. Estruturada para transmitir confiança, clareza e facilitar o contato com novos pacientes.",
     technologies: ["Lovable", "Cursor"],
-    githubUrl: "https://github.com",
     liveUrl:
       "https://acolher-espaco-magic.lovable.app/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnfbFkYv6TBpuRJyN3WGKSY-A4FzhODbJi8Tygtm7DV81kDLQT0ue5uhsdHN8_aem_McyAyBc8rEOg2s4zFFu-LQ",
     image: projectClinica,
   },
   {
-    title: "Community Library",
-    description:
-      "API de biblicoteca comunitária, criada inteiramente em JS para fins didáticos.",
+    title: "Landing Page Personal",
+    description: "Página profissional para personal trainer, com foco em autoridade e captação de clientes. Design estratégico com destaque para serviços, transformação e produtos digitais.",
     technologies: ["JavaScript"],
-    githubUrl: "https://github.com/devantonio27/community-library",
+    liveUrl: "https://carlos-lessa-personal-ochre.vercel.app/",
     image: projectLibrary,
   },
   {
     title: "Portfolio Website",
     description:
-      "Site de portfólio pessoal com design moderno, animações suaves e totalmente responsivo.",
+      "Portfólio pessoal com design moderno e interativo, destacando projetos, habilidades e identidade profissional. Desenvolvido com foco em performance, responsividade e experiência do usuário.",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     githubUrl: "https://github.com/devantonio27/ToniDev-portifolio",
     liveUrl: "https://toni-dev-portifolio.vercel.app/",
@@ -93,14 +91,16 @@ const ProjectCard = ({
           {/* 🎬 Overlay no hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center">
             <div className="flex gap-4">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-background/80 backdrop-blur-sm text-foreground hover:text-primary p-3 rounded-full transition-all duration-300 hover:scale-110 opacity-0 scale-90 group-hover/image:opacity-100 group-hover/image:scale-100"
-              >
-                <Github className="w-5 h-5" />
-              </a>
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-background/80 backdrop-blur-sm text-foreground hover:text-primary p-3 rounded-full transition-all duration-300 hover:scale-110 opacity-0 scale-90 group-hover/image:opacity-100 group-hover/image:scale-100"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              )}
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
