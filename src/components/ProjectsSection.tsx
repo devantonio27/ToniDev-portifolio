@@ -47,7 +47,7 @@ const projects: Project[] = [
     title: "Landing Page Personal",
     description: "Página profissional para personal trainer, com foco em autoridade e captação de clientes. Design estratégico com destaque para serviços, transformação e produtos digitais.",
     technologies: ["JavaScript"],
-    liveUrl: "https://carlos-lessa-personal-ochre.vercel.app/",
+    liveUrl: "https://carlos-lessa-personal-5m5w.vercel.app/",
     image: projectLibrary,
   },
   {
