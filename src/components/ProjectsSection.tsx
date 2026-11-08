@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 import projectBewear from "@/assets/project-bewear.png";
 import projectClinica from "@/assets/project-clinica.png";
 import projectLibrary from "@/assets/project-personal.png";
-import projectPortfolio from "@/assets/project-portfolio.png";
+import projectFitia from "@/assets/project-fitia.jpg";
 
 interface Project {
   title: string;
+  category?: string;
   description: string;
   technologies: string[];
   githubUrl?: string;
@@ -51,14 +52,21 @@ const projects: Project[] = [
     image: projectLibrary,
   },
   {
-    title: "Portfolio Website",
+    title: "FitIA",
+    category: "AI Fitness Platform",
     description:
-      "Portfólio pessoal com design moderno e interativo, destacando projetos, habilidades e identidade profissional. Desenvolvido com foco em performance, responsividade e experiência do usuário.",
-    technologies: ["React", "TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/devantonio27/ToniDev-portifolio",
-    liveUrl: "https://toni-dev-portifolio.vercel.app/",
-    featured: true,
-    image: projectPortfolio,
+      "Plataforma fitness com inteligência artificial que oferece acompanhamento de treinos personalizados, gerenciamento de atividades e um Coach AI para auxiliar os usuários durante sua jornada de treinamento.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Inteligência Artificial",
+    ],
+    githubUrl: "https://github.com/devantonio27/Fit-ia",
+    liveUrl: "https://app.mycoachfit.com.br/",
+    image: projectFitia,
   },
 ];
 
