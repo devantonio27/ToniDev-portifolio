@@ -44,7 +44,7 @@ export const HeroSection = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
             >
-              Olá, eu sou <span className="text-gradient">Toni Dev</span>
+              Olá, eu sou <span className="text-gradient">Antonio</span>
             </motion.h1>
 
             <motion.h2
